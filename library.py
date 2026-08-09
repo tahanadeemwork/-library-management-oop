@@ -47,4 +47,14 @@ class Library:
 
         member.borrowed_books.remove(entry_to_remove)
         book.copies_available += 1
-        
+
+    def view_member_report(self, member):
+        if not member.borrowed_books:
+            print(f"{member.name} has no books currently borrowed.")
+            return
+
+        print(f"Report for {member.name} ({member.member_id}):")
+        for book, due_date in member.borrowed_books:
+            is_overdue = due_date < date.today()
+            status = "OVERDUE" if is_overdue else "on time"
+            print(f"  - {book.title} | Due: {due_date} | Status: {status}")
