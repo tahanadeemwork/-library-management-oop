@@ -27,3 +27,17 @@ class Member:
 
     def __repr__(self):
         return f"Member(name='{self.name}', member_id='{self.member_id}', borrowed_books={len(self.borrowed_books)})"
+
+class StudentMember(Member):
+    max_books_allowed = 3
+    borrowing_period_days = 14
+
+
+class FacultyMember(Member):
+    max_books_allowed = 6
+    borrowing_period_days = 30
+
+s = StudentMember("Alice", "S001")
+f = FacultyMember("Bob", "F001")
+print(s.max_books_allowed, f.max_books_allowed)
+print(isinstance(s, Member), isinstance(f, Member))
