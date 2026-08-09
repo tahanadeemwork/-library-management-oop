@@ -36,8 +36,3 @@ class StudentMember(Member):
 class FacultyMember(Member):
     max_books_allowed = 6
     borrowing_period_days = 30
-
-s = StudentMember("Alice", "S001")
-f = FacultyMember("Bob", "F001")
-print(s.max_books_allowed, f.max_books_allowed)
-print(isinstance(s, Member), isinstance(f, Member))

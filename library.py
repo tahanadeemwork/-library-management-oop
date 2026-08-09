@@ -1,3 +1,5 @@
+from datetime import date, timedelta
+
 class Library:
     def __init__(self):
         self.books = {}
@@ -22,3 +24,27 @@ class Library:
             if keyword.lower() in book.title.lower() or keyword.lower() in book.author.lower():
                 results.append(book)
         return results
+
+    def borrow_book(self, member, book):
+        if not book.is_available():
+            raise ValueError(f"'{book.title}' is not available right now")
+
+        if len(member.borrowed_books) >= member.max_books_allowed:
+            raise ValueError(f"{member.name} has reached their borrowing limit of {member.max_books_allowed} books")
+
+        book.copies_available -= 1
+        due_date = date.today() + timedelta(days=member.borrowing_period_days)
+        member.borrowed_books.append((book, due_date))
+
+    def return_book(self, member, book):
+        entry_to_remove = None
+        for entry in member.borrowed_books:
+            if entry[0] is book:
+                entry_to_remove = entry
+                break
+        if entry_to_remove is None:
+            raise ValueError(f"'{book.title}' is not borrowed by {member.name}")
+
+        member.borrowed_books.remove(entry_to_remove)
+        book.copies_available += 1
+        
