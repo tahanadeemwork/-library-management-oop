@@ -1,0 +1,70 @@
+{
+  "books": {
+    "1111": {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "isbn": "1111",
+      "total_copies": 2,
+      "copies_available": 1
+    },
+    "2222": {
+      "title": "lomri",
+      "author": "lomri",
+      "isbn": "2222",
+      "total_copies": 2,
+      "copies_available": 0
+    },
+    "3333": {
+      "title": "pakistan",
+      "author": "pakistan",
+      "isbn": "3333",
+      "total_copies": 2,
+      "copies_available": 1
+    },
+    "4444": {
+      "title": "Lahore",
+      "author": "Lahore",
+      "isbn": "4444",
+      "total_copies": 1,
+      "copies_available": 1
+    }
+  },
+  "members": {
+    "S001": {
+      "type": "StudentMember",
+      "name": "Alice",
+      "member_id": "S001",
+      "borrowed_books": [
+        {
+          "isbn": "2222",
+          "due_date": "2026-08-23"
+        },
+        {
+          "isbn": "3333",
+          "due_date": "2026-08-23"
+        },
+        {
+          "isbn": "2222",
+          "due_date": "2026-08-23"
+        }
+      ]
+    },
+    "S002": {
+      "type": "StudentMember",
+      "name": "Bob",
+      "member_id": "S002",
+      "borrowed_books": [
+        {
+          "isbn": "1111",
+          "due_date": "2026-08-23"
+        }
+      ]
+    },
+    "S003": {
+      "type": "StudentMember",
+      "name": "Carol",
+      "member_id": "S003",
+      "borrowed_books": []
+    }
+  }
+}
